@@ -44,15 +44,14 @@ to Elm `Color` values and vice versa.
 ## Hue
 @docs rotateHue, scaleToRed, scaleToAqua
 
+# Converting to and from Hex Codes
+@docs hexToColor, colorToHex, colorToHex8
+
 # Intermediate Color Representations
 @docs Rgba, Hsla
 
 ### Converting back to `Color`
 @docs rgbaToColor, hslaToColor
-
-# Converting to and from Hex Codes
-@docs hexToColor, colorToHex, colorToHex8
-
 
 # Applying a color transform function to a [`CssValue`](http://package.elm-lang.org/packages/danielnarey/elm-css-basics/latest/CssBasics#CssValue)
 @docs colorTransform
@@ -303,7 +302,7 @@ numToHex num =
 
 -- RGB COMPONENTS
 
-{-| Given a `Color`, returns the value of the red channel.
+{-| Given a `Color`, returns the value of its red channel.
 -}
 getRed : Color -> Int
 getRed color =
@@ -331,7 +330,7 @@ setRed value color =
       |> rgbaToColor
 
 
-{-| Given a `Color`, returns the value of the green channel.
+{-| Given a `Color`, returns the value of its green channel.
 -}
 getGreen : Color -> Int
 getGreen color =
@@ -359,7 +358,7 @@ setGreen value color =
       |> rgbaToColor
 
 
-{-| Given a `Color`, returns the value of the blue channel
+{-| Given a `Color`, returns the value of its blue channel.
 -}
 getBlue : Color -> Int
 getBlue color =
@@ -494,7 +493,7 @@ getAlpha color =
 
 
 {-| Given a decimal value between 0 and 1 and a `Color`, returns an updated
-`Color` with the alpha channel to the input value.
+`Color` with the alpha channel set to the input value.
 -}
 setAlpha : Float -> Color -> Color
 setAlpha value color =
@@ -653,7 +652,7 @@ moreTransparent amount baseColor =
 
 
 {-| Given a decimal value *x* between -1 and 1 and a `Color`, returns an updated
-`Color` with the hue rotated by *(x * 360)* degrees, as represented on a color
+`Color` with the hue rotated by _(x * 360)_ degrees, as represented on a color
 wheel.
 -}
 rotateHue : Float -> Color -> Color
