@@ -8,7 +8,9 @@ module ColorMath exposing
 
 {-|
 
-This package includes functions for getting and setting individual rgba and hsla
+This package includes functions for
+[getting and setting](#getting-and-setting-color-components)
+individual rgba and hsla
 color components, functions for
 [relative color scaling](#relative-color-scaling)
 by hue, saturation,
@@ -89,7 +91,7 @@ type alias Hsla =
 -- CONVERTING BACK TO `Color`
 
 {-| Converts RGBA components to a
-[`Color`](http://package.elm-lang.org/packages/elm-lang/core/latest/Color#Color)
+[`Color`](http://package.elm-lang.org/packages/elm-lang/core/latest/Color#Color).
 -}
 rgbaToColor : Rgba -> Color
 rgbaToColor rgba =
@@ -106,7 +108,7 @@ rgbaToColor rgba =
 
 
 {-| Converts HSLA components to a
-[`Color`](http://package.elm-lang.org/packages/elm-lang/core/latest/Color#Color)
+[`Color`](http://package.elm-lang.org/packages/elm-lang/core/latest/Color#Color).
 -}
 hslaToColor : Hsla -> Color
 hslaToColor hsla =
@@ -242,7 +244,7 @@ hexToColor hexCode =
 
 
 {-| Given a `Color`, returns the equivalent hexademimal color code as a
-6-character string, with the alpha channel ignored
+6-character string, with the alpha channel ignored.
 -}
 colorToHex : Color -> String
 colorToHex color =
@@ -254,7 +256,7 @@ colorToHex color =
 
 {-| Given a `Color`, returns the equivalent hexademimal color code as an
 8-character string, with the alpha channel represented by the last two
-characters (note that 8-digit hex codes are not yet supported by all browsers)
+characters (note that 8-digit hex codes are not yet supported by all browsers).
 -}
 colorToHex8 : Color -> String
 colorToHex8 color =
@@ -301,7 +303,7 @@ numToHex num =
 
 -- RGB COMPONENTS
 
-{-| Given a `Color`, returns the value of the red channel
+{-| Given a `Color`, returns the value of the red channel.
 -}
 getRed : Color -> Int
 getRed color =
@@ -311,7 +313,7 @@ getRed color =
 
 
 {-| Given an integer value from 0 to 255 and a `Color`, returns an
-updated `Color` with the red channel set to the input value
+updated `Color` with the red channel set to the input value.
 -}
 setRed : Int -> Color -> Color
 setRed value color =
@@ -329,7 +331,7 @@ setRed value color =
       |> rgbaToColor
 
 
-{-| Given a `Color`, returns the value of the green channel
+{-| Given a `Color`, returns the value of the green channel.
 -}
 getGreen : Color -> Int
 getGreen color =
@@ -339,7 +341,7 @@ getGreen color =
 
 
 {-| Given an integer value from 0 to 255 and a `Color`, returns an
-updated `Color` with the green channel set to the input value
+updated `Color` with the green channel set to the input value.
 -}
 setGreen : Int -> Color -> Color
 setGreen value color =
@@ -367,7 +369,7 @@ getBlue color =
 
 
 {-| Given an integer value from 0 to 255 and a `Color`, returns an
-updated `Color` with the blue channel set to the input value
+updated `Color` with the blue channel set to the input value.
 -}
 setBlue : Int -> Color -> Color
 setBlue value color =
@@ -403,7 +405,7 @@ getHue color =
 
 {-| Given a decimal value between 0 and 360 (representing degrees on a color
 wheel) and a `Color`, returns an updated `Color` with the hue set to the input
-value
+value.
 -}
 setHue : Float -> Color -> Color
 setHue value color =
@@ -423,7 +425,7 @@ setHue value color =
 
 
 
-{-| Given a `Color`, returns its saturation as a decimal value between 0 and 1
+{-| Given a `Color`, returns its saturation as a decimal value between 0 and 1.
 -}
 getSaturation : Color -> Float
 getSaturation color =
@@ -433,7 +435,7 @@ getSaturation color =
 
 
 {-| Given a decimal value between 0 and 1 and a `Color`, returns an updated
-`Color` with the saturation set to the input value
+`Color` with the saturation set to the input value.
 -}
 setSaturation : Float -> Color -> Color
 setSaturation value color =
@@ -451,7 +453,7 @@ setSaturation value color =
       |> hslaToColor
 
 
-{-| Given a `Color`, returns its lightness as a decimal value between 0 and 1
+{-| Given a `Color`, returns its lightness as a decimal value between 0 and 1.
 -}
 getLightness : Color -> Float
 getLightness color =
@@ -461,7 +463,7 @@ getLightness color =
 
 
 {-| Given a decimal value between 0 and 1 and a `Color`, returns an updated
-`Color` with the lightness set to the input value
+`Color` with the lightness set to the input value.
 -}
 setLightness : Float -> Color -> Color
 setLightness value color =
@@ -482,7 +484,7 @@ setLightness value color =
 -- Alpha
 
 {-| Given a `Color`, returns its alpha channel as a decimal value between 0 and
-1
+1.
 -}
 getAlpha : Color -> Float
 getAlpha color =
@@ -492,7 +494,7 @@ getAlpha color =
 
 
 {-| Given a decimal value between 0 and 1 and a `Color`, returns an updated
-`Color` with the alpha channel to the input value
+`Color` with the alpha channel to the input value.
 -}
 setAlpha : Float -> Color -> Color
 setAlpha value color =
@@ -514,6 +516,7 @@ setAlpha value color =
 
 {-| Given a decimal value *x* between 0 and 1 and a `Color`, returns an updated
 `Color` with the lightness *L* increased proportionally by the formula:
+
     L + ( x * (1 - L) )
 -}
 lighten : Float -> Color -> Color
@@ -536,6 +539,7 @@ lighten amount baseColor =
 
 {-| Given a decimal value *x* between 0 and 1 and a `Color`, returns an updated
 `Color` with the lightness *L* decreased proportionally by the formula:
+
     L - (x * L)
 -}
 darken : Float -> Color -> Color
@@ -558,6 +562,7 @@ darken amount baseColor =
 
 {-| Given a decimal value *x* between 0 and 1 and a `Color`, returns an updated
 `Color` with the saturation *S* increased proportionally by the formula:
+
     S + ( x * (1 - S) )
 -}
 saturate : Float -> Color -> Color
@@ -580,6 +585,7 @@ saturate amount baseColor =
 
 {-| Given a decimal value *x* between 0 and 1 and a `Color`, returns an updated
 `Color` with the saturation *S* decreased proportionally by the formula:
+
     S - (x * S)
 -}
 desaturate : Float -> Color -> Color
@@ -602,6 +608,7 @@ desaturate amount baseColor =
 
 {-| Given a decimal value *x* between 0 and 1 and a `Color`, returns an updated
 `Color` with the alpha *A* increased proportionally by the formula:
+
     A + ( x * (1 - A) )
 -}
 moreOpaque : Float -> Color -> Color
@@ -624,6 +631,7 @@ moreOpaque amount baseColor =
 
 {-| Given a decimal value *x* between 0 and 1 and a `Color`, returns an updated
 `Color` with the alpha *A* decreased proportionally by the formula:
+
     A - (x * A)
 -}
 moreTransparent : Float -> Color -> Color
@@ -646,7 +654,7 @@ moreTransparent amount baseColor =
 
 {-| Given a decimal value *x* between -1 and 1 and a `Color`, returns an updated
 `Color` with the hue rotated by *(x * 360)* degrees, as represented on a color
-wheel
+wheel.
 -}
 rotateHue : Float -> Color -> Color
 rotateHue amount baseColor =
@@ -674,6 +682,7 @@ rotateHue amount baseColor =
 
 {-| Given a decimal value *x* between 0 and 1 and a `Color`, returns an updated
 `Color` with the hue *H* scaled proportionally toward red by the formula:
+
     if H >= 180 then
       H + ( x * (360 - H) )
     else
@@ -704,6 +713,7 @@ scaleToRed amount baseColor =
 
 {-| Given a decimal value *x* between 0 and 1 and a `Color`, returns an updated
 `Color` with the hue *H* scaled proportionally toward aqua by the formula:
+
     if H <= 180 then
       H + ( x * (180 - H) )
     else
