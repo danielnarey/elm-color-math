@@ -112,8 +112,10 @@ rgbaToColor rgba =
 hslaToColor : Hsla -> Color
 hslaToColor hsla =
   ( hsla.hue
+    |> checkForNaN
     |> clamp (degrees 0) (degrees 360)
   , hsla.saturation
+    |> checkForNaN
     |> clamp 0 1
   , hsla.lightness
     |> clamp 0 1
@@ -399,6 +401,7 @@ getHue color =
   color
     |> Color.toHsl
     |> .hue
+    |> checkForNaN
     |> (*) (180/pi)
 
 
@@ -431,6 +434,7 @@ getSaturation color =
   color
     |> Color.toHsl
     |> .saturation
+    |> checkForNaN
 
 
 {-| Given a decimal value between 0 and 1 and a `Color`, returns an updated
@@ -760,3 +764,13 @@ colorTransform transform value =
     _ ->
       "`CssValue` argument must be of type `Col`"
         |> Err
+
+
+-- HELPER
+
+checkForNaN : Float -> Float
+checkForNaN value =
+  if (value |> isNaN) then
+    0
+  else
+    value
