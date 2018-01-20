@@ -1,5 +1,5 @@
 {
-    "version": "2.0.0",
+    "version": "2.0.1",
     "summary": "Functions for scaling colors and converting among representations",
     "repository": "https://github.com/danielnarey/elm-color-math.git",
     "license": "BSD2",
@@ -15,7 +15,7 @@
         "ColorMath.Scaling"
     ],
     "dependencies": {
-        "danielnarey/elm-toolkit": "6.1.1 <= v < 7.0.0",
+        "danielnarey/elm-toolkit": "6.2.0 <= v < 7.0.0",
         "elm-lang/core": "5.1.1 <= v < 6.0.0"
     },
     "elm-version": "0.18.0 <= v < 0.19.0"
