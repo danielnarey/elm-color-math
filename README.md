@@ -1,5 +1,7 @@
 ## Functions for scaling colors and converting among representations
 
+New — [Live demo!](http://danielnarey.com/elm-color-math)
+
 This package includes functions for getting and setting individual
 [RGBA](http://package.elm-lang.org/packages/danielnarey/elm-color-math/latest/ColorMath-Rgba)
 and
