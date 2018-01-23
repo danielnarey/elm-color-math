@@ -9,7 +9,7 @@
     ],
     "exposed-modules": [],
     "dependencies": {
-        "danielnarey/elm-modular-ui": "1.0.0 <= v < 2.0.0",
+        "danielnarey/elm-modular-ui": "1.0.1 <= v < 2.0.0",
         "danielnarey/elm-semantic-dom": "3.0.0 <= v < 4.0.0",
         "danielnarey/elm-semantic-effects": "1.0.1 <= v < 2.0.0",
         "danielnarey/elm-toolkit": "6.2.0 <= v < 7.0.0",

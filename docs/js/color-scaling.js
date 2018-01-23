@@ -12427,14 +12427,22 @@ var _danielnarey$elm_modular_ui$Ui_Input$float = F2(
 				token(
 					_elm_lang$core$Result$toMaybe(_p21)));
 		};
-		var failOnErr = function (result) {
-			var _p22 = result;
-			if (_p22.ctor === 'Ok') {
-				return _elm_lang$core$Json_Decode$succeed(
-					token(
-						_elm_lang$core$Maybe$Just(_p22._0)));
+		var failOnIncompleteOrInvalid = function (input) {
+			var _p22 = _elm_lang$core$Native_Utils.eq(input, '0.');
+			if (_p22 === true) {
+				return _elm_lang$core$Json_Decode$fail('ends with decimal point');
 			} else {
-				return _elm_lang$core$Json_Decode$fail('not a Float');
+				return function (result) {
+					var _p23 = result;
+					if (_p23.ctor === 'Ok') {
+						return _elm_lang$core$Json_Decode$succeed(
+							token(
+								_elm_lang$core$Maybe$Just(_p23._0)));
+					} else {
+						return _elm_lang$core$Json_Decode$fail('not a Float');
+					}
+				}(
+					_elm_lang$core$String$toFloat(input));
 			}
 		};
 		var captureString = A2(
@@ -12481,40 +12489,34 @@ var _danielnarey$elm_modular_ui$Ui_Input$float = F2(
 									ctor: '::',
 									_0: A2(
 										_danielnarey$elm_semantic_dom$Dom_Property$float,
-										function (_p23) {
-											var _p24 = _p23;
-											return _p24._0;
+										function (_p24) {
+											var _p25 = _p24;
+											return _p25._0;
 										}(args.minMaxStep),
 										'min'),
 									_1: {
 										ctor: '::',
 										_0: A2(
 											_danielnarey$elm_semantic_dom$Dom_Property$float,
-											function (_p25) {
-												var _p26 = _p25;
-												return _p26._1;
+											function (_p26) {
+												var _p27 = _p26;
+												return _p27._1;
 											}(args.minMaxStep),
 											'max'),
 										_1: {
 											ctor: '::',
 											_0: A2(
 												_danielnarey$elm_semantic_dom$Dom_Property$float,
-												function (_p27) {
-													var _p28 = _p27;
-													return _p28._2;
+												function (_p28) {
+													var _p29 = _p28;
+													return _p29._2;
 												}(args.minMaxStep),
 												'step'),
 											_1: {
 												ctor: '::',
 												_0: A2(
 													_danielnarey$elm_semantic_dom$Dom_Event$custom,
-													A2(
-														_elm_lang$core$Json_Decode$andThen,
-														function (_p29) {
-															return failOnErr(
-																_elm_lang$core$String$toFloat(_p29));
-														},
-														captureString),
+													A2(_elm_lang$core$Json_Decode$andThen, failOnIncompleteOrInvalid, captureString),
 													'input'),
 												_1: {
 													ctor: '::',
