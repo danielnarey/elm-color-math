@@ -1,3 +1,7 @@
+# Not updated for Elm 0.19
+
+---
+
 ## Functions for scaling colors and converting among representations
 
 New — [Live demo!](http://danielnarey.com/elm-color-math)
